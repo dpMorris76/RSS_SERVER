@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="styles.css" media="screen"?>
+<rss version="2.0">
+  <channel>
+    <generator>RSS Builder by B!Soft</generator>
+    <title>FeedTitle</title>
+    <link>http://ourfeed.com</link>
+    <description>Feed Description</description>
+    <language>en-us</language>
+    <managingEditor>editor@localhost.com</managingEditor>
+    <webMaster>webmaster@localhost.com</webMaster>
+    <copyright>cp</copyright>
+    <image>
+      <title>FeedTitle</title>
+      <link>http://ourfeed.com</link>
+      <url>http://imageurl.com</url>
+      <width>200</width>
+      <height>150</height>
+    </image>
+    <item>
+      <title>Story2</title>
+      <pubDate>Tue, 19 May 2015 15:18:57 -0600</pubDate>
+      <link>http://ourfeed.com/story2</link>
+      <author>author2@localhost.com</author>
+      <comments>http://ourfeed.com/comments/story2</comments>
+      <category>cat2, cat3</category>
+      <description><![CDATA[<em>as<br/>d</em>
+<p><em>f</em></p>]]></description>
+    </item>
+    <item>
+      <title>Story1</title>
+      <pubDate>Thu, 21 May 2015 15:16:38 -0600</pubDate>
+      <link>http://ourfeed.com/story1</link>
+      <guid isPermaLink="true">http://ourfeed.com/story1</guid>
+      <author>author@localhost.com</author>
+      <comments>http://ourfeed.com/comments/story1</comments>
+      <category>cat1, cat2</category>
+      <description><![CDATA[<p align="center"><strong>Des</strong><em>crip</em><U>tion</U></p>]]></description>
+    </item>
+  </channel>
+</rss>
