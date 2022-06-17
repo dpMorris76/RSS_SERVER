@@ -1,0 +1,37 @@
+PRTT 51290
+
+Obviously needed
+- Need a new html editor (any suggestions?)
+- Is there any specific way you want us or suggest us to use to store the multiple links in the database?
+	- json string (pref) o:
+	- if another table link xref table and alter current to work in that way.  
+	- probably another table, (what dana would prefer)
+	
+Create the ability to add a point of contact to the bottom of the story.
+Auto populate with the author name and formatted phone number. 
+2. For above?
+Only the phone  number and the name. 
+
+Create the ability to re-publish a story.
+3. What type of thing is being republished (expired story?) 
+Probably something that is currently live, and it needs to be changed on the fly, they really want on the fly editing and re publishing.  
+
+Create the ability to warn a user that their session has timed out. 
+4. Kyle will need to help with this, or someone will have to do a lot of research.
+
+Review the expiration date process.
+Review Server Side Publish Rates.
+5/6: Create a documentation folder and add a .md file called storyPublishingAndExpiring.md
+
+Create the ability to automate user registration.
+7. What additional automatic user registration do we need?
+Create the new user in a way similar to how the infolink client creates users, use the same permissions etc. (create a static method in userDS.java). 
+
+Create the ability to remove a published story. 
+9. Should this be on the same page as where they are directed from the email? 
+Yes, probably. It can go in the same location that it is currently in, however we need the button to stand out as unpublish (red? bold?) probably with a confirm.  
+
+Just made sense:
+Create the ability to add multiple hyper links to a story. Each link should capture the URL value. The client article should display the link name. 
+Create the ability to add / insert a table into the body of the story. 
+Create the ability to display the channel name when reviewing or approving a story. 
