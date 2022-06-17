@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+  xmlns:lang="http://www.springframework.org/schema/lang" xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xmlns:p="http://www.springframework.org/schema/p" xmlns:task="http://www.springframework.org/schema/task"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+  <context:component-scan base-package="com.centurylink.rss.domain" />
+  <context:component-scan base-package="com.centurylink.rss.business" />
+  <context:component-scan base-package="com.centurylink.rss.schedule" />
+  <context:annotation-config />
+
+  <task:annotation-driven></task:annotation-driven>
+  <bean id="propertyConfigurer"
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+    p:location="/WEB-INF/app.properties" />
+
+  <bean id="systemProperty"
+    class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+    <property name="targetClass" value="java.lang.System" />
+    <property name="targetMethod" value="setProperty" />
+    <property name="arguments">
+      <list>
+        <value>oracle.net.tns_admin</value>
+        <value>${db.tnsadmin}</value>
+      </list>
+    </property>
+  </bean>
+
+  <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="defaultEncoding" value="UTF-8" />
+    <property name="host" value="${mail.host}" />
+    <property name="port" value="${mail.port}" />
+    <property name="protocol" value="${mail.protocol}" />
+    <property name="username" value="${mail.username}" />
+    <property name="password" value="${mail.password}" />
+    <property name="javaMailProperties">
+      <props>
+        <prop key="mail.smtps.auth">${mail.smtps.auth}</prop>
+        <prop key="mail.smtps.starttls.enable">${mail.smtps.starttls.enable}</prop>
+        <prop key="mail.smtps.debug">${mail.smtps.debug}</prop>
+      </props>
+    </property>
+  </bean>
+
+  <bean id="userAdminDataSource" class="oracle.jdbc.pool.OracleDataSource"
+    destroy-method="close">
+    <property name="connectionCachingEnabled" value="true" />
+    <property name="URL">
+      <value>${db.url}</value>
+    </property>
+    <property name="user">
+      <value>${db.username}</value>
+    </property>
+    <property name="password">
+      <value>${db.password}</value>
+    </property>
+    <property name="connectionCacheProperties">
+      <value>
+        InitialLimit:1
+        MinLimit:1
+        MaxStatementsLimit:0
+        MaxLimit:100
+        ConnectionWaitTimeout:120
+        InactivityTimeout:180
+        TimeToLiveTimeout:0
+        AbandonedConnectionTimeout:0
+        PropertyCheckInterval:900
+        ValidateConnection:true
+      </value>
+    </property>
+  </bean>
+
+  <tx:annotation-driven />
+  <bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+  <bean id="sessionFactory"
+    class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+    <property name="dataSource">
+      <ref bean="userAdminDataSource" />
+    </property>
+    <property name="packagesToScan">
+      <array>
+        <value>com.centurylink.rss.domain</value>
+      </array>
+    </property>
+    <property name="hibernateProperties">
+      <props>
+        <prop key="hibernate.dialect">${db.dialect}</prop>
+        <prop key="hibernate.show_sql">${db.showSql}</prop>
+      </props>
+    </property>
+  </bean>
+  <bean id="transactionManager"
+    class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+  <bean id="hibernateUtil" class="com.centurylink.rss.domain.entity.util.HibernateUtil">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </bean>
+
+  <bean id="agileSignon" class="java.lang.String">
+    <constructor-arg type="String" value="${app.authSignonURL}" />
+  </bean>
+
+  <bean id="ldapDAO" class="com.centurylink.agile.client.AgileAuthenticationClient">
+    <property name="agileAuthenticationService" value="${app.authURL}" />
+    <property name="aasUsername" value="${app.authUsername}" />
+    <property name="aasPassword" value="${app.authPassword}" />
+  </bean>
+
+ <bean id="xmlPathProperties" class="java.util.Properties">
+		<constructor-arg>
+			<props>
+			    <prop key="deployUrl">@DEPLOY_URL@</prop>
+				<prop key="appBaseDir">@APP_BASE_DIR@</prop>
+				<prop key="xmlPath">@XML_FILE_PATH@</prop>
+				<prop key="xmlLinkPath">@XML_LINK_PATH@</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+  <!-- Begin scheduler -->
+
+  <!-- Our 'service' -->
+  <bean id="channelCrons" class="com.centurylink.rss.schedule.controller.ChannelCrons"></bean>
+  <!-- our job with links to the methods we need invoked -->
+  <bean id="rewriteChannelsJob"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="channelCrons" />
+    <property name="targetMethod" value="rewriteThingsAndSetNextTrigger" />
+    <property name="concurrent" value="false" />
+  </bean>
+
+  <!-- the trigger that calls the job -->
+  <bean id="rewriteChannelsTrigger"
+    class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+    <!-- Job bean that we need to schedule -->
+    <property name="jobDetail" ref="rewriteChannelsJob" />
+    <property name="startDelay" value="10000" />
+    <property name="repeatInterval" value="10000" />
+  </bean>
+  <!-- Our effecient executor -->
+  <bean id="channelRewriteExecutor" class="org.springframework.core.task.SimpleAsyncTaskExecutor"></bean>
+
+
+  <!-- Scheduler factory bean to glue together jobDetails and triggers to 
+    Configure Quartz Scheduler -->
+  <bean id="expiredStoryJobDetail"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <property name="targetObject" ref="channelCrons" />
+    <property name="targetMethod" value="moveExpiredStories" />
+  </bean>
+
+  <bean id="expiredStoryCronTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail" ref="expiredStoryJobDetail" />
+    <property name="cronExpression" value="${cron.expireStoriesJob}" />
+  </bean>
+
+  <!-- End Expired Story Scheduler -->
+
+
+  <!-- the quartz scheduler with pieces put in place. -->
+  <bean id="scheduler"
+    class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="taskExecutor" ref="channelRewriteExecutor"></property>
+    <property name="triggers">
+      <list>
+        <ref bean="rewriteChannelsTrigger" />
+        <ref bean="expiredStoryCronTrigger" />
+      </list>
+    </property>
+  </bean>
+  <!-- End scheduler -->
+
+</beans>

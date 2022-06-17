@@ -1,0 +1,30 @@
+# Oracle DB CONFIGURATION PARAMS #
+db.tnsadmin=@tnsadmin@
+db.url=@url@
+db.sid=@sid@
+db.username=@username@
+db.password=@password@
+db.dialect=@dialect@
+db.showSql=@showSql@
+
+# Agile Authentication Client #
+app.authSignonURL=@authSignonURL@
+app.authURL=@authURL@
+app.authUsername=@authUsername@
+app.authPassword=@authPassword@
+app.baseDir=@APP_BASE_DIR@
+app.logDir=@LOG_FILE_PATH@
+app.xmlDir=@XML_FILE_PATH@
+app.deployUrl=@DEPLOY_URL@
+
+mail.host=@MAIL_HOST@
+mail.port=@MAIL_PORT@
+mail.protocol=@MAIL_PROTOCOL@
+mail.username=@MAIL_USERNAME@
+mail.password=@MAIL_PASSWORD@
+mail.smtps.auth=@MAIL_SMTPS_AUTH@
+mail.smtps.starttls.enable=@MAIL_SMTPS_STARTTLS_ENABLE@
+mail.smtps.debug=@MAIL_SMTPS_DEBUG@
+
+# Cron Timer #
+cron.expireStoriesJob=@CRON_EXPIRE@
