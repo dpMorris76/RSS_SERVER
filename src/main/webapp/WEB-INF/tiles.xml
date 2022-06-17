@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	
+	<!-- Templates -->
+	<definition name="base.definition" template="/WEB-INF/tiles/layout.jsp">
+		<put-attribute name="title" value="RSS" />
+		<put-attribute name="site" value="/WEB-INF/tiles/site.jsp" />
+		<put-attribute name="content" value="" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+	</definition>
+	<definition name="base.popup.definition" template="/WEB-INF/tiles/contentOnly.jsp">
+		<put-attribute name="content" value="" />
+	</definition>
+
+	<!-- Views -->
+	<definition name="welcome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/welcome.jsp" />
+	</definition>
+	<definition name="notWelcome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/notWelcome.jsp" />
+	</definition>
+	<definition name="error" extends="base.definition">
+		<put-attribute name="header" value="" />
+		<put-attribute name="title" value="RSS" />
+		<put-attribute name="site" value="" />
+		<put-attribute name="content" value="/WEB-INF/tiles/error.jsp" />
+	</definition>
+	<definition name="channel" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/channel.jsp" />
+	</definition>
+	<definition name="tools" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/tools.jsp" />
+	</definition>
+	<definition name="feeds" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/feeds.jsp" />
+	</definition>
+	<!-- Admin -->
+	<definition name="userHome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/admin/userHome.jsp" />
+	</definition>
+	<definition name="userGrid" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/admin/userGrid.jsp" />
+	</definition>
+	<definition name="userEdit" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/admin/userEdit.jsp" />
+	</definition>
+	<definition name="bulkEdit" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/admin/bulkEdit.jsp"  />
+	</definition>
+		<definition name="autoSelectChannels" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/admin/autoSelectChannels.jsp"  />
+	</definition>
+	<!-- Content -->
+	<definition name="contentHome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/contentHome.jsp" />
+	</definition>
+	<definition name="submissionForm" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/submissionForm.jsp" />
+	</definition>
+	<definition name="submissionReview" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/submissionReview.jsp" />
+	</definition>
+	<definition name="submissionReviewExpired" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/submissionReviewExpired.jsp" />
+	</definition>
+	<definition name="submissionGrid" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/submissionGrid.jsp" />
+	</definition>
+	<definition name="submissionReject" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/submissionReject.jsp" />
+	</definition>
+	<definition name="submissionActionSummary" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/contentActionSummary.jsp" />
+	</definition>
+	<definition name="deleteActionSummary" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/deleteActionSummary.jsp" />
+	</definition>
+	<definition name="updateActionSummary" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/updateActionSummary.jsp" />
+	</definition>
+	<definition name="expiredStoriesGrid" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/expiredStoriesGrid.jsp" />
+	</definition>
+    <definition name="expiredStory" extends="base.popup.definition">
+        <put-attribute name="content" value="/WEB-INF/tiles/content/expiredStory.jsp"/>
+    </definition>
+	<!-- Channel -->
+	<definition name="channelHome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/channelHome.jsp" />
+	</definition>
+	<definition name="channelForm" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/channelForm.jsp" />
+	</definition>
+	<definition name="channelReview" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/channelReview.jsp" />
+	</definition>
+	<definition name="channelGrid" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/channelGrid.jsp" />
+	</definition>
+	<definition name="channelReject" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/channelReject.jsp" />
+	</definition>
+	<definition name="channelActionSummary" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/contentActionSummary.jsp" />
+	</definition>
+	<!-- Group -->
+	<definition name="groupHome" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/groupHome.jsp" />
+	</definition>
+	<definition name="groupForm" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/groupForm.jsp" />
+	</definition>
+	<definition name="groupReview" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/groupReview.jsp" />
+	</definition>
+	<definition name="groupGrid" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/groupGrid.jsp" />
+	</definition>
+	<definition name="groupReject" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/groupReject.jsp" />
+	</definition>
+	<definition name="tracking" extends="base.definition">
+		<put-attribute name="content" value="/WEB-INF/tiles/content/tracking.jsp" />
+	</definition>
+</tiles-definitions>
