@@ -1,0 +1,1 @@
+mkdir /fenway/tomcat/webapps/rssChannels

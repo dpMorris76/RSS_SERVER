@@ -1,0 +1,1 @@
+mkdir /agile/apps/RSS/rssChannels
