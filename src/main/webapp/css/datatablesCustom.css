@@ -1,0 +1,89 @@
+/* Modifications/additions to base datatables styling */
+
+table{
+margin: 0 auto;
+border-collapse:collapse;
+border:1px solid #8CC63F;
+}
+
+table td{
+border:1px solid #8CC63F;
+}
+
+#example {
+	font-size: 12px;
+	color: #616365; /* Dark Gray */
+}
+
+th, td { 
+	font-size:12px;
+	white-space: nowrap; 
+	color: #00853F;
+}
+div.toolbar {
+	margin: 0 auto;
+}
+div.dataTables_wrapper {
+	font:10px Arial;
+	text-align:left;
+    width: 100%;
+    margin: 0 auto;
+}
+div.dataTables_info {
+	text-align:center;
+}
+/* Score card colors */
+th.scoreCloud {
+	background-color:#CBBFD7 !important;
+}
+th.scoreNone {
+	background-color:#FFFF00 !important;
+}
+th.scoreShutdown {
+	background-color:#D8EDF2 !important;
+}
+th.scoreNonCloud {
+	background-color:#F2F2F2 !important;
+}
+
+/* View/Edit link */
+.sideLinkTxt {
+	text-decoration: underline;
+	color: #8CC63F; /*CTL GREEN*/
+	padding:none;
+}
+.sideLinkTxt:hover {
+	cursor:pointer;
+}
+/* Clean grid loading */
+.showmefirst {
+	font-size:450%;
+	color:#9A9B9C;
+	opacity:0.5;
+}
+.hideme {
+	visibility:hidden;
+}
+.removeme {
+	display:none;
+}
+
+/* CTLifying grid highlighting */
+#example tr.even:hover {
+    background-color: #222222;
+}
+#example tr.even:hover td.sorting_1 {
+    background-color: #111111;
+}
+#example tr.odd:hover {
+    background-color: #222222;
+}
+#example tr.odd:hover td.sorting_1 {
+    background-color: #111111;
+}
+#example tr.selected {
+    background-color: #333333;
+}
+#example tr.selected td.sorting_1 {
+    background-color: #222222;
+}

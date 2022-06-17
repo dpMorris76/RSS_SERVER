@@ -1,0 +1,166 @@
+/* --------Color Palette--------
+ * CENTURYLINK PRIMARY COLORS
+ * Dark Green - #00853F;
+ * Bright Green - #8CC63F;
+ * White - #FFFFFF;
+ * Black - #000000;
+ *
+ * CENTURYLINK SUPPORT COLORS
+ * EG1 Darker Green - #284E36;
+ * EG2 Light Green - #34B233;
+ * EG3 Mid Green - #5B8F22;
+ * EG4 Pale Yellow - #CED64B;
+ * EG5 Pale Green - #A5D867;
+ * Mid Gray - #9A9B9C;
+ * Dark Gray - #616365;
+ * 
+ * CENTURYLINK ACCENT COLORS
+ * EP1 Dark Orange - #FF6319;
+ * EP2 Pale Orange - #FFA02F;
+ * EP3 Golden Yellow - #FDC82F;
+ * EP4 Bright Blue - #0098DB;
+ * EP5 Pale Blue - #A0CFEB;
+ */
+ 
+/* Applies font choice to everything */
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.monotype {
+	font-weight:bold;
+	font-family:monospace;
+}
+
+/* 
+* Main layout styling
+*/
+/* Left tile */
+#site {
+	position: absolute;
+	left: 1%;
+	top: 1%;
+	bottom: 5%;
+	width: 15%;
+	background-image: url("../images/cl_logo.gif");
+	background-size: 95%;
+	background-repeat: no-repeat;
+}
+
+/* Main/middle tile */
+#content {
+	position: absolute;
+	top: 5%;
+	left: 16%;
+	right: 16%;
+	bottom: 5%;
+	width:84%;
+}
+/* Bottom tile */
+#footer {
+	position: absolute;
+	bottom:0px;
+	height:245px;
+	margin-left:0px;
+	padding-left:0px;
+	margin-right:0px;
+	padding-right:0px;
+	right: 0%;
+	width: 100%;
+	z-index: -1;
+	background-image: url("../images/footerShiftCrop.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+/*
+* Element styling
+*/
+
+/* Input/Button Styles */
+input:HOVER {
+	cursor:pointer;
+}
+input[type=button] {
+	width: 100%;
+	height: 24px;
+	background: #00853F; /* Dark Green */
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: #00853F;
+}
+
+input[type=submit] {
+	width: 98%;
+	height: 24px;
+	background: #00853F;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: #00853F;
+	
+}
+input.fixedwidthbtn{
+	width: 250px;
+}
+
+/* Table styles */
+table{
+/*margin: 0 auto;*/
+border-collapse:collapse;
+border:1px solid #8CC63F;
+}
+
+table td{
+border:1px solid #8CC63F;
+}
+
+th, td { 
+	font-size:12px;
+	white-space: nowrap; 
+	color: #00853F;
+}
+
+/* Link (anchor) styles */
+a:link {
+	text-decoration: underline;
+	color: #8CC63F; /*CTL GREEN*/
+}
+a:visited {
+	text-decoration: none;
+	color: #8CC63F; /*Bright GREEN*/
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+
+/* Displays connected user */
+#userInfoTitle {
+	position:absolute;
+	top:2%;
+	right:2%;
+	font-weight: bold;
+	font-size: 14px;
+	color: #00853F; /* CTL Green */
+}
+
+.borderless
+{
+	border:0px solid #000000 !important; 
+}
+
+.align-top
+{
+	vertical-align:top;
+}
+.error
+{
+	font-color: Red;
+}
+.expiredBoxes{
+	width: 12%;
+	padding: 5px;
+}

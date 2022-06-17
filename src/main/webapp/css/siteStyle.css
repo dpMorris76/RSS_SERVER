@@ -1,0 +1,32 @@
+/* For content specific to the left/site tile */
+
+/* Highest level menu buttons */
+input.homebtn {
+	/* Currently same as default button styling */
+}
+/* Second level menu buttons */
+input.subhomebtn{
+	width: 80%;
+	font-size: 14px;
+	background: #284E36; /* Darker Green */
+	border: #284E36;
+	margin: 0 0 0 20%; /* Top Right Bottom Left */
+}
+/* Third level menu buttons CURRENTLY UNUSED */
+input.subsubhomebtn{
+	width: 60%;
+	font-size: 16px;
+	background: #00853F; /* Dark Green */
+	border: #00853F;
+	margin: 0 0 0 40%; /* Top Right Bottom Left */
+}
+
+/* App title text */
+#appText{
+	margin-top:25%;
+	margin-left: 1%;
+	font-weight: 700;
+	font-size: 20px;
+	color: #616365; /* Dark Gray */
+	text-align:center;
+}
